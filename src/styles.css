@@ -1,0 +1,76 @@
+:root {
+  --text-hover-color: red;
+  --block-hover-color: red;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  background-color: #ffffff;
+}
+
+body {
+  font-size: 15px;
+  line-height: 20px;
+  color: #37352f;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+  &:hover {
+    color: var(--hover-color);
+  }
+}
+
+.layout {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+}
+
+.sidebar {
+  padding: 24px 0 24px 16px;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.listItem {
+  padding: 0.5rem 1rem;
+  border-left: 1px solid gray;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.listItem:hover {
+  background-color: wheat;
+}
+
+.listItemChildren {
+  margin-left: 1rem;
+}
+
+.content {
+  padding: 4rem 4rem;
+}
+
+.title {
+  font-size: 19px;
+  line-height: 24px;
+  margin-bottom: 1rem;
+}
+
+#logInfoList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
