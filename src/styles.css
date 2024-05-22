@@ -1,4 +1,16 @@
+/* =================================================== */
+/* This file contains some default styles for the app */
+/* ================================================= */
+
 :root {
+  /* font-sizes */
+  --font-size-small: 14px;
+  --line-height-small: 20px;
+  --font-size-main: 16px;
+  --line-height-main: 22px;
+  /* spacings  */
+  --block-spacing-x: 1.5rem;
+  --block-spacing-y: 1.5rem;
   --text-hover-color: red;
   --block-hover-color: red;
 
@@ -7,6 +19,12 @@
   font-weight: 400;
 
   background-color: #ffffff;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
 }
 
 body {
@@ -29,17 +47,46 @@ a {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 3fr 7fr;
+  grid-template-rows: repeat(1fr);
 }
 
 .sidebar {
-  padding: 24px 0 24px 16px;
+  background-color: #f7f7f5;
+  grid-row: 1 / span 2;
+  padding: var(--block-spacing-y) calc(var(--block-spacing-x) - 12px);
+}
+
+.sidebarActionsList {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.sidebarAction {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2px;
+}
+
+.contentWrapper {
+  grid-row: 1 / span 2;
+}
+
+.documentContent,
+.devTools {
+  padding: var(--block-spacing-y) var(--block-spacing-x);
 }
 
 .branding {
   display: flex;
+  width: fit-content;
   align-items: center;
   gap: 8px;
   margin-bottom: 24px;
+  margin-left: 12px;
 }
 
 .listItem {
@@ -59,14 +106,21 @@ a {
   margin-left: 1rem;
 }
 
-.content {
-  padding: 4rem 4rem;
-}
-
 .title {
   font-size: 19px;
   line-height: 24px;
   margin-bottom: 1rem;
+}
+
+.hoverableSidebarItem {
+  color: #5f5e5b;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: #ededeb;
+  }
 }
 
 #logInfoList {

@@ -1,11 +1,20 @@
 import { Sidebar } from "./Sidebar";
-import { Content } from "./Content";
+import { DocumentContent } from "./DocumentContent";
+import React from "react";
+import { DevTools } from "./DevTools";
 
 function App() {
+  const [selectedDocumentId, setSelectedDocumentId] = React.useState<
+    string | null
+  >(null);
+
   return (
     <div className="layout">
       <Sidebar />
-      <Content />
+      <div className="contentWrapper">
+        <DocumentContent documentId={null} />
+        <DevTools />
+      </div>
     </div>
   );
 }
