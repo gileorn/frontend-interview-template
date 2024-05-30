@@ -1,3 +1,5 @@
+import "./DocumentContent.css";
+
 export const DocumentContent = ({
   documentId,
 }: {
@@ -11,5 +13,9 @@ export const DocumentContent = ({
     );
   }
 
-  return null;
+  return (
+    <div className="documentContent">
+      <h1>Document id - {documentId}</h1>
+    </div>
+  );
 };

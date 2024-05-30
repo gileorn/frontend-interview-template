@@ -1,0 +1,10 @@
+.sidebar {
+  background-color: #f7f7f5;
+  grid-row: 1 / span 2;
+  padding: var(--block-spacing-y) calc(var(--block-spacing-x) - 12px);
+}
+
+.sidebarSectionTitle {
+  padding-left: 12px;
+  margin-bottom: 0.5rem;
+}
