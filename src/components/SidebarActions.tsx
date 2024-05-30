@@ -1,4 +1,5 @@
 import { Home, Search, Inbox, Settings } from "react-feather";
+import "./SidebarActions.css";
 
 const mockedSidebarActions = [
   { icon: Search, title: "Search" },
@@ -11,7 +12,7 @@ export const SidebarActions = () => {
   return (
     <div className="sidebarActionsList">
       {mockedSidebarActions.map((action) => (
-        <div className="sidebarAction hoverableSidebarItem">
+        <div className="sidebarAction hoverableSidebarItem" key={action.title}>
           <action.icon size={16} />
           <div>{action.title}</div>
         </div>
