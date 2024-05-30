@@ -38,6 +38,7 @@ const SAMPLE_TEXTS = [
   "Granby Timberland",
 ];
 
+// change for uuid
 let id = 0;
 
 export const getRandomItems = (): Array<Item> => {
@@ -49,7 +50,19 @@ export const getRandomItems = (): Array<Item> => {
     const randomTitle = SAMPLE_TEXTS[randomTitleIndex];
     const randomEmoji = getRandomEmoji();
 
-    result.push({ title: randomTitle, id: id++, emoji: randomEmoji });
+    result.push({ title: randomTitle, id: String(id++), emoji: randomEmoji });
+  }
+
+  return result;
+};
+
+export const getRandomDocumentContent = () => {
+  const randomPhrasesCount = Math.floor(Math.random() * 10) + 10;
+  let result = "";
+
+  for (let i = 0; i < randomPhrasesCount; i++) {
+    const randomPhraseIndex = Math.floor(Math.random() * SAMPLE_TEXTS.length);
+    result += SAMPLE_TEXTS[randomPhraseIndex];
   }
 
   return result;

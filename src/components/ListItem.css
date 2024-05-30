@@ -1,0 +1,32 @@
+.listItem {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+
+  & .openIcon {
+    display: none;
+  }
+}
+
+.listItem:hover {
+  background-color: #e7e7e7;
+
+  & .openIcon {
+    display: block;
+  }
+}
+
+.loadingItem {
+  padding: 0.5rem 1rem;
+}
+
+.listItem:hover .itemEmoji {
+  display: none;
+}
+
+.listItemChildren {
+  margin-left: 1rem;
+}
