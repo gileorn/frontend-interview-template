@@ -1,4 +1,6 @@
-console.log("Gandalf");
+// in which order console logs will be executed?
+//
+// -->
 
 setTimeout(() => {
   console.log("Frodo");
@@ -7,15 +9,14 @@ setTimeout(() => {
   });
 }, 0);
 
-new Promise(function (resolve) {
+console.log("Gandalf");
+
+new Promise((resolve) => {
   console.log("Aragorn");
-  setTimeout(function () {
-    console.log("Gimli");
-    resolve("Boromir");
-  }, 0);
-}).then((result) => {
-  console.log("Sam");
   setTimeout(() => {
-    console.log(result);
+    console.log("Gimli");
+    resolve();
   }, 0);
+}).then(() => {
+  console.log("Sam");
 });

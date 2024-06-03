@@ -1,5 +1,6 @@
 import "./Sidebar.css";
 import { ListItem } from "./ListItem";
+import { ListItemTemplate } from "./ListItemTemplate.tsx";
 import { getRandomEmoji } from "../utils/getRandomEmoji";
 import { SidebarActions } from "./SidebarActions";
 import { Branding } from "./Branding";
@@ -23,7 +24,10 @@ export const Sidebar = ({
 
       <div>
         <div className="sidebarSectionTitle">Workspaces</div>
+        {/* this is my implementation as a reference */}
         <ListItem item={rootItem} onDocumentSelected={onDocumentSelected} />
+        {/* this is what candidate will have at the start */}
+        <ListItemTemplate />
       </div>
     </div>
   );
