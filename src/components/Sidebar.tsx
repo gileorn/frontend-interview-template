@@ -23,7 +23,7 @@ export const Sidebar = () => {
 
       <div>
         <div className="sidebarSectionTitle">Workspaces</div>
-        <ListItem />
+        <ListItem item={rootItem} />
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ const Mark = John;
 
 Mark.height = 178;
 
-console.log(John.height); // --->
+console.log(John.height); // ---> 178
 
 // ------------------------------- //
 // ------------------------------- //
@@ -16,4 +16,4 @@ function changeIdentity(person) {
 }
 
 changeIdentity(name);
-console.log(name); // --->
+console.log(name); // ---> "John"
