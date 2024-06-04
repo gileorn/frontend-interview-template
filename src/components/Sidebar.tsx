@@ -1,22 +1,21 @@
 import "./Sidebar.css";
 import { ListItem } from "./ListItem";
-import { ListItemTemplate } from "./ListItemTemplate.tsx";
 import { getRandomEmoji } from "../utils/getRandomEmoji";
 import { SidebarActions } from "./SidebarActions";
 import { Branding } from "./Branding";
 import type { Item } from "../types";
 
+// this is the static root item
+// let's assume all workspaces have this root item
+// you can start with rendering it and then requesting
+// child items for it
 const rootItem: Item = {
   title: "Root",
   id: "root",
   emoji: getRandomEmoji(),
 };
 
-export const Sidebar = ({
-  onDocumentSelected,
-}: {
-  onDocumentSelected: (id: Item["id"]) => void;
-}) => {
+export const Sidebar = () => {
   return (
     <div className="sidebar">
       <Branding />
@@ -24,10 +23,7 @@ export const Sidebar = ({
 
       <div>
         <div className="sidebarSectionTitle">Workspaces</div>
-        {/* this is my implementation as a reference */}
-        <ListItem item={rootItem} onDocumentSelected={onDocumentSelected} />
-        {/* this is what candidate will have at the start */}
-        <ListItemTemplate />
+        <ListItem />
       </div>
     </div>
   );

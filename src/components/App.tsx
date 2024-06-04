@@ -1,25 +1,15 @@
-import React from "react";
-
 import "./App.css";
 
 import { Sidebar } from "./Sidebar";
 import { DocumentContent } from "./DocumentContent";
 import { DevTools } from "./DevTools";
-import { Item } from "../types";
 
 function App() {
-  const [selectedDocumentId, setSelectedDocumentId] = React.useState<
-    string | null
-  >(null);
-
-  const handleDocumentIdSelected = (id: Item["id"]) =>
-    setSelectedDocumentId(id);
-
   return (
     <div className="layout">
-      <Sidebar onDocumentSelected={handleDocumentIdSelected} />
+      <Sidebar />
       <div className="contentWrapper">
-        <DocumentContent documentId={selectedDocumentId} />
+        <DocumentContent />
         <DevTools />
       </div>
     </div>
