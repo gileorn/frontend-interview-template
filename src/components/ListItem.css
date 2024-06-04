@@ -1,37 +1,26 @@
-.listItem {
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+.root {
+
+}
+
+.toggle {
+  all: unset;
+
+  &:hover {
+    background: red;
+  }
+}
+
+.button {
+  background: #ccc;
   display: flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: 8px;
-
-  & .openIcon {
-    display: none;
-  }
 }
-
-.listItem:hover {
-  background-color: #e7e7e7;
-
-  & .openIcon {
-    display: block;
-  }
+.subItems {
+  list-style: none;
+  padding: 10px;
+  margin: 0
 }
-
-.openIcon:hover {
-  background-color: #cecece;
-  border-radius: 4px;
-}
-
-.loadingItem {
-  padding: 0.5rem 1rem;
-}
-
-.listItem:hover .itemEmoji {
-  display: none;
-}
-
-.listItemChildren {
-  margin-left: 1rem;
+.subItem {
+  list-style: none;
+  padding: 0;
+  margin: 0
 }

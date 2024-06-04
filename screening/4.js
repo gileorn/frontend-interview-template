@@ -13,6 +13,7 @@ console.log("Gandalf");
 
 new Promise((resolve) => {
   console.log("Aragorn");
+  
   setTimeout(() => {
     console.log("Gimli");
     resolve();
@@ -20,3 +21,12 @@ new Promise((resolve) => {
 }).then(() => {
   console.log("Sam");
 });
+
+
+// Gandalf
+// Aragorn
+// Frodo
+// Legolas
+// Gimli
+// Sam
+

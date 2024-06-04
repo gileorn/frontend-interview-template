@@ -2,7 +2,7 @@ function test() {
   console.log(this);
 }
 
-test(); // --->
+test(); // ---> window
 
 // -------------------- //
 // -------------------- //
@@ -13,11 +13,11 @@ const person = {
   test: test,
 };
 
-person.test(); // --->
+person.test(); // ---> person
 
 const danTest = person.test;
 
-danTest(); // --->
+danTest(); // ---> person
 
 // -------------------- //
 // -------------------- //
@@ -32,5 +32,5 @@ function createCounter() {
 
 const counter = createCounter();
 
-counter.increment(); // --->
-console.log(count); // --->
+counter.increment(); // ---> 1
+console.log(count); // ---> 10
