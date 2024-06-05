@@ -1,0 +1,19 @@
+{
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode@10.4.0",
+        "dbaeumer.vscode-eslint@2.4.4"
+      ],
+      "settings": {
+        "extensions.autoCheckUpdates": false,
+        "extensions.autoUpdate": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": "explicit"
+        }
+      }
+    }
+  }
+}

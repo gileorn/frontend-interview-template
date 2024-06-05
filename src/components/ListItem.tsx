@@ -1,6 +1,6 @@
-// here you can write styles
+// here you can add styles
 import "./ListItem.css";
-//here is the ts type of the data
+// here is the ts type of the data
 import { Item } from "../types";
 // here are the icons if you need them
 import { ChevronRight, ChevronDown } from "react-feather";
