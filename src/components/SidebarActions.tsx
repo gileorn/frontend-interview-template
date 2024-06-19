@@ -12,7 +12,7 @@ export const SidebarActions = () => {
     <div className="sidebarActionsList">
       {mockedSidebarActions.map((action) => (
         <div className="sidebarAction hoverableSidebarItem" key={action.title}>
-          <action.icon size={16} />
+          <action.icon size={16} className="actionIcon" />
           <div>{action.title}</div>
         </div>
       ))}

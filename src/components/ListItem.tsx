@@ -1,13 +1,7 @@
 import React from "react";
-
-// here you can add styles
 import "./ListItem.css";
-// here is the ts type of the data
 import { Item } from "../types";
-// here are the icons if you need them
 import { ChevronRight, ChevronDown } from "react-feather";
-// here is the method to get the data
-// const result = await getDocumentChildItems()
 import { getDocumentChildItems } from "../actions/getItems";
 
 interface Props {
@@ -15,9 +9,51 @@ interface Props {
 }
 
 export const ListItem = ({ item }: Props) => {
+  const [isOpened, setIsOpened] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [children, setChildren] = React.useState<Item[]>([]);
+
+  const handleExpandListItem: React.MouseEventHandler<HTMLOrSVGElement> =
+    React.useCallback(
+      (event) => {
+        event.stopPropagation();
+        const newIsOpened = !isOpened;
+        setIsOpened(newIsOpened);
+
+        const loadChildren = async () => {
+          setIsLoading(true);
+          const result = await getDocumentChildItems(item.id);
+          setIsLoading(false);
+          if (!result) return;
+          setChildren(result);
+        };
+
+        if (!newIsOpened || children.length) return;
+
+        loadChildren();
+      },
+      [isOpened, setIsOpened, children, item.id],
+    );
+
+  const Icon = isOpened ? ChevronDown : ChevronRight;
+
   return (
-    <div>
-      {item.emoji} {item.title}
+    <div className="listItemContainer">
+      <div className="listItem" data-id={item.id}>
+        <div className="itemEmoji">{item.emoji}</div>
+        <Icon className="openIcon" size={18} onClick={handleExpandListItem} />
+        <div>{item.title}</div>
+      </div>
+      <div className="listItemChildren">
+        {isLoading && <div className="loadingItem">Loading pages ...</div>}
+        {!isLoading && children.length > 0 && isOpened && (
+          <div>
+            {children.map((child) => (
+              <ListItem key={child.id} item={child} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

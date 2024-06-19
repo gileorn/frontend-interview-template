@@ -7,8 +7,8 @@ let requestCount = 0;
 export const getDocumentChildItems = (id: string) => {
   if (++requestCount > MAX_REQUEST_COUNT) {
     console.log(">>> Possible infinite loop detected!");
-    return;
+    return Promise.resolve(null);
   }
 
-  fakeFetch(getRandomItems, `getChildItems for item ${id}`);
+  return fakeFetch(getRandomItems, `getChildItems for item ${id}`);
 };

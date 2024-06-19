@@ -10,7 +10,7 @@ export const fakeFetch = <ReturnType>(
 
     setTimeout(() => {
       resolve(result);
-      console.log(`>>> completed - ${resource}`);
+      console.log(`>>> completed - ${resource}`, { result });
     }, randomDelayMs);
   });
 };
