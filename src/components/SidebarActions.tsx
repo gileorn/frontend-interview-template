@@ -1,5 +1,4 @@
 import { Home, Search, Inbox, Settings } from "react-feather";
-import "./SidebarActions.css";
 
 const mockedSidebarActions = [
   { icon: Search, title: "Search" },

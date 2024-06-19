@@ -2,21 +2,63 @@
 /* This file contains some default styles for the app */
 /* ================================================= */
 
-:root {
-  /* font-sizes */
-  --font-size-small: 14px;
-  --line-height-small: 20px;
-  --font-size-main: 16px;
-  --line-height-main: 22px;
-  /* spacings  */
-  --block-spacing-x: 1.5rem;
-  --block-spacing-y: 1.5rem;
-  --text-hover-color: red;
-  --block-hover-color: red;
+.layout {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+}
 
+.branding {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  margin-left: 12px;
+}
+
+.sidebar {
+  flex-grow: 1;
+  max-width: 600px;
+  background-color: #f7f7f5;
+  padding: 32px calc(32px - 12px);
+}
+
+.sidebarSectionTitle {
+  padding-left: 12px;
+  margin-bottom: 1rem;
+}
+
+.sidebarActionsList {
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.sidebarAction {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2px;
+}
+
+.hoverableSidebarItem {
+  color: #5f5e5b;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: #ededeb;
+  }
+}
+
+:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
 
   background-color: #ffffff;
 }
@@ -27,10 +69,13 @@ h3 {
   margin-top: 0;
 }
 
-body {
-  font-size: 15px;
+html {
+  font-size: 18px;
   line-height: 20px;
   color: #37352f;
+}
+
+body {
   margin: 0;
 }
 

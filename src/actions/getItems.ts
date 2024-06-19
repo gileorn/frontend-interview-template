@@ -1,5 +1,14 @@
 import { fakeFetch } from "../utils/fakeFetch";
 import { getRandomItems } from "../utils/getRandomItems";
 
-export const getDocumentChildItems = (id: string) =>
+const MAX_REQUEST_COUNT = 30;
+let requestCount = 0;
+
+export const getDocumentChildItems = (id: string) => {
+  if (++requestCount > MAX_REQUEST_COUNT) {
+    console.log(">>> Possible infinite loop detected!");
+    return;
+  }
+
   fakeFetch(getRandomItems, `getChildItems for item ${id}`);
+};

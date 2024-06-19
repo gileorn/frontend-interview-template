@@ -1,5 +1,4 @@
 import manychatLogoSrc from "../assets/manychat_logo.svg";
-import "./Branding.css";
 
 export const Branding = () => {
   return (

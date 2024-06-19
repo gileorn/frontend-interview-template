@@ -1,4 +1,3 @@
-import "./Sidebar.css";
 import { ListItem } from "./ListItem";
 import { getRandomEmoji } from "../utils/getRandomEmoji";
 import { SidebarActions } from "./SidebarActions";
@@ -20,10 +19,9 @@ export const Sidebar = () => {
     <div className="sidebar">
       <Branding />
       <SidebarActions />
-
       <div>
         <div className="sidebarSectionTitle">Workspaces</div>
-        <ListItem />
+        <ListItem item={rootItem} />
       </div>
     </div>
   );

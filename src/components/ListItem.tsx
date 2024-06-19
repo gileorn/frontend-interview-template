@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 // here you can add styles
 import "./ListItem.css";
@@ -10,8 +10,14 @@ import { ChevronRight, ChevronDown } from "react-feather";
 // const result = await getDocumentChildItems()
 import { getDocumentChildItems } from "../actions/getItems";
 
-interface Props {}
+interface Props {
+  item: Item;
+}
 
-export const ListItem = ({}: Props) => {
-  return null;
+export const ListItem = ({ item }: Props) => {
+  return (
+    <div>
+      {item.emoji} {item.title}
+    </div>
+  );
 };
