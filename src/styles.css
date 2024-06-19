@@ -7,6 +7,13 @@
   display: flex;
 }
 
+.background {
+  width: 100%;
+  background-image: url("assets/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .branding {
   display: flex;
   width: fit-content;
@@ -18,7 +25,8 @@
 
 .sidebar {
   flex-grow: 1;
-  max-width: 600px;
+  flex-shrink: 0;
+  width: 400px;
   background-color: #f7f7f5;
   padding: 32px calc(32px - 12px);
 }
