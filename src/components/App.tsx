@@ -4,7 +4,6 @@ function App() {
   return (
     <div className="layout">
       <Sidebar />
-      <div className="background" />
     </div>
   );
 }

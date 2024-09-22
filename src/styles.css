@@ -4,16 +4,8 @@
 
 .layout {
   min-height: 100vh;
-  display: flex;
-}
-
-.background {
-  width: 100%;
   background-image: url("assets/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
 }
-
 .branding {
   display: flex;
   width: fit-content;
@@ -24,11 +16,16 @@
 }
 
 .sidebar {
-  flex-grow: 1;
-  flex-shrink: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 400px;
+  height: 100%;
+  overflow-y: scroll;
   background-color: #f7f7f5;
   padding: 32px calc(32px - 12px);
+  box-shadow: 5px 0px 20px rgb(0 0 0 / 32%);
+  z-index: 10;
 }
 
 .sidebarSectionTitle {

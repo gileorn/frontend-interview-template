@@ -5,7 +5,7 @@
 /* ========================================== */
 export const fakeFetch = <ReturnType>(
   callback: () => ReturnType,
-  resource: string
+  resource: string,
 ): Promise<ReturnType> => {
   console.log(`>>> called - ${resource}`);
 

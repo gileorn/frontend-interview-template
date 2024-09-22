@@ -9,11 +9,17 @@ let requestCount = 0;
 /*  to avoid setting up a real backend, */
 /*  details are not important here */
 /* ========================================== */
-export const getDocumentChildItems = (id: string) => {
+export const getDocumentChildItems = ({ id }: { id: string }) => {
   if (++requestCount > MAX_REQUEST_COUNT) {
     console.log(">>> Possible infinite loop detected!");
-    return Promise.resolve(null);
+    throw new Error("Possible infinite loop");
   }
 
-  return fakeFetch(getRandomItems, `getChildItems for item ${id}`);
+  return fakeFetch(() => {
+    if (Math.random() < 0.6) {
+      throw new Error("Random error");
+    }
+
+    return getRandomItems();
+  }, `getChildItems for item ${id}`);
 };
