@@ -8,6 +8,7 @@ const icons = {
   loader: Loader,
   alert: XCircle,
 };
+
 export type IconsType = keyof typeof icons;
 
 export const Icon = ({

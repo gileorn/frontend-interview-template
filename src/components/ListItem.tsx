@@ -4,7 +4,7 @@ import "./ListItem.css";
 // here is the ts type of the data
 import { Item } from "../types";
 // here are the icons if you need them
-import { getDocumentChildItems } from "~/actions/getItems";
+import { getDocumentChildItems, GetItemsParams } from "~/actions/getItems";
 import useResolver from "~/hooks/useResolver";
 import { MapCache } from "~/resolvers/cacheImpl";
 
@@ -56,10 +56,9 @@ export const ListItem = ({ item }: Props) => {
 
     setIconError(true);
     setAnimateIcon(true);
-    itemsCache.set(item.id, true);
   }, [error, isOpen]);
 
-  // override css rules to control the state of the icon from a single location
+  // override css rules to control the state of the icon from a single location (<Icon> component)
   const mouseEnterHandler = () => {
     setHasHover(true);
   };
@@ -68,7 +67,7 @@ export const ListItem = ({ item }: Props) => {
     setHasHover(false);
   };
 
-  const onAnimationEnd = () => {
+  const onIconAnimationEnd = () => {
     setAnimateIcon(false);
   };
 
@@ -86,7 +85,7 @@ export const ListItem = ({ item }: Props) => {
           emoji={item.emoji}
           hasError={showIconError}
           hasHover={hasHover}
-          onAnimationEnd={onAnimationEnd}
+          onAnimationEnd={onIconAnimationEnd}
           animate={animateIcon}
         />
         <div className="title">{item.title}</div>
@@ -101,16 +100,13 @@ export const ListItem = ({ item }: Props) => {
   );
 };
 
-type FetchParams = {
-  id: string;
-};
 
 type FetchResult = Item[];
 
-type ResolverParams = FetchParams & { title: string };
+type ResolverParams = GetItemsParams & { title: string };
 
 const useResolveItems = ({ id, title }: ResolverParams) => {
-  return useResolver<FetchParams, FetchResult>(getDocumentChildItems, {
+  return useResolver<GetItemsParams, FetchResult>(getDocumentChildItems, {
     requestParams: { id },
     queryParams: { prefetch: true },
     cacheOptions: { key: `${id}_${title}` },

@@ -1,3 +1,4 @@
+import { Item } from "~/types";
 import { fakeFetch } from "../utils/fakeFetch";
 import { getRandomItems } from "../utils/getRandomItems";
 
@@ -9,17 +10,14 @@ let requestCount = 0;
 /*  to avoid setting up a real backend, */
 /*  details are not important here */
 /* ========================================== */
-export const getDocumentChildItems = ({ id }: { id: string }) => {
+
+export type GetItemsParams = { id: string };
+
+export const getDocumentChildItems = ({ id }: GetItemsParams): Promise<Item[]> => {
   if (++requestCount > MAX_REQUEST_COUNT) {
     console.log(">>> Possible infinite loop detected!");
     throw new Error("Possible infinite loop");
   }
 
-  return fakeFetch(() => {
-    if (Math.random() < 0.6) {
-      throw new Error("Random error");
-    }
-
-    return getRandomItems();
-  }, `getChildItems for item ${id}`);
+  return fakeFetch(getRandomItems, `getChildItems for item ${id}`, true);
 };

@@ -11,7 +11,7 @@ const generateKeyFromParams = (params: ResolverParams) => {
   let string = "";
 
   for (const key in params) {
-    if (Object.prototype.hasOwnProperty.call(object, key)) {
+    if (Object.prototype.hasOwnProperty.call(params, key)) {
       const value = params[key];
 
       string += `_key_${value}`;
@@ -47,11 +47,16 @@ const resolverImpl = async <Params extends ResolverParams, Result>(
     result = await resolver(requestParams);
     cache.set(key, result);
   } catch (e) {
+    let message
     if (typeof e === "string") {
+      message = e;
       error = new Error(e);
     } else if (e instanceof Error) {
+      message = e.message
       error = new Error(e.message);
     }
+
+    console.error(`Resolver ${resolver.name} failed with message "${message}"`, { requestParams }, { error: e });
   }
 
   return { result, error };
